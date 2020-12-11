@@ -27,19 +27,20 @@ func _enter_tree():
 #	menu.add_item("Show", MENU_SHOW)
 #	menu.connect("id_pressed", self, "_on_menu_id_pressed")
 #	add_tool_submenu_item("Project statistics", menu)
-	_menu_button = MenuButton.new()
-	_menu_button.text = "Project statistics"
-	_menu_button.get_popup().add_item("Show", MENU_SHOW)
-	_menu_button.get_popup().connect("id_pressed", self, "_on_menu_id_pressed")
-	add_control_to_container(CONTAINER_TOOLBAR, _menu_button)
+	#_menu_button = MenuButton.new()
+	#_menu_button.text = "Project statistics"
+	#_menu_button.get_popup().add_item("Show", MENU_SHOW)
+	#_menu_button.get_popup().connect("id_pressed", self, "_on_menu_id_pressed")
+	#add_control_to_container(CONTAINER_TOOLBAR, _menu_button)
+	add_tool_menu_item("Project statistics",self,"_on_menu_id_pressed",0)
 	
 	_analyzer.connect("scan_completed", self, "_on_analyzer_scan_completed")
 	_analyzer.call_deferred("run")
 
 
 func _exit_tree():
-	_menu_button.queue_free()
-	_menu_button = null
+	#_menu_button.queue_free()
+	#_menu_button = null
 	
 	_window.queue_free()
 	_window = null
